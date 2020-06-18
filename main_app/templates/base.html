@@ -10,7 +10,8 @@
   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
 <body>
-  <header class="navbar-fixed">
+  <header class="navbar">
+    <!-- class="navbar-fixed" -->
     <nav>
       <div class="nav-wrapper">
         <ul>
@@ -18,6 +19,7 @@
         </ul>
         <ul class="right">
           <li><a href="{% url 'about' %}">About</a></li>
+          <li><a href="{% url 'guitar_create' %}">Add Guitar</a></li>
           <li><a href="{% url 'index' %}">View All My Guitars</a></li>
         </ul>
       </div>
@@ -27,7 +29,9 @@
     {% block content %}
     {% endblock %}
   </main>
-  <footer class="page-footer">
+  
+  <footer class="footer">
+    <hr>
     <div class="right">All Rights Reserved, &copy; 2020 Guitar Collector &nbsp;</div>
   </footer>
 </body>

@@ -14,7 +14,34 @@
                 <p>Neck Joint: {{ guitar.neck_joint }}</p>
                 <p>Description: {{ guitar.description }}</p>
             </div>
+            <div class="card-action">
+                <a href="{% url 'guitar_update' guitar.id %}">Edit</a>
+                <a href="{% url 'guitar_delete' guitar.id %}">Delete</a>
+            </div>
         </div>
+    </div>
+    <div class="col s6">
+        <form action="{% url 'add_variations' guitar.id %}" method="post">
+            {% csrf_token %}
+            {{ variations_form.as_p }}
+            <input type="submit" class="btn" value="Add Variation">
+        </form>
+        <table class="striped">
+          <thead>
+            <tr><th>Date Created</th><th>Name</th></tr>
+          </thead>
+          <tbody>
+            {% for variation in guitar.variations_set.all %}
+              <tr>
+                <td>{{variation.date_created}}</td>
+                <td>{{variation.name}}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        <!-- <table class="striped">
+                tTHIS WILL BE TABLE FOR PLAYERS
+        </table> -->
     </div>
 </div>
 
