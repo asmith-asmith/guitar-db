@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>GuitarList</h1>
+
+{% for guitar in guitars %}
+    <div class="card">
+        <div class="card-content">
+            <a href="/guitars/{{ guitar.id }}">
+                <span class="card-title">{{ guitar.name }}</span>
+                <p>Manufacturer: {{ guitar.manufacturer }}</p>
+                <p>Period Start: {{ guitar.period_start }}</p>
+                <p>Body Type: {{ guitar.body_type }}</p>
+                <p>Neck Joint: {{ guitar.neck_joint }}</p>
+                <p>Description: {{ guitar.description }}</p>
+            </a>
+        </div>
+    </div>
+{% endfor %}
+
+{% endblock %}
