@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Guitarists List</h1>
+
+{% for guitarist in guitarist_list %}
+  <a href="{% url 'guitarist_detail' guitarist.id %}">
+    <div class="card">
+        <div class="card-content">
+            <span class="card-title">{{ guitarist.name }}</span>
+            <p>Band: {{ guitarist.band }}</p>
+            <p>Born: {{ guitarist.born }}</p>
+        </div>
+    </div>
+  </a>
+{% endfor %}
+
+{% endblock %}
